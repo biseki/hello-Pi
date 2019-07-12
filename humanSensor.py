@@ -16,10 +16,10 @@ while True:
     if GPIO.input(26) == 1:
         print("YES")
         light_on()
-        time.sleep(0.5)
+        time.sleep(3)
+        light_off()
     else:
         print("NO")
-        light_off()
-        time.sleep(0.5)
+        time.sleep(1)
 GPIO.cleanup()
 
