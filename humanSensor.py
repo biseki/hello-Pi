@@ -1,25 +1,22 @@
 import RPi.GPIO as GPIO
 import time
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(18, GPIO.OUT)
-GPIO.setup(26, GPIO.IN)
+class uniboHumanSensor:
 
-def light_on():
-    GPIO.output(18, GPIO.HIGH)
-
-def light_off():
-    GPIO.output(18, GPIO.LOW)
-
-
-while True:    
-    if GPIO.input(26) == 1:
-        print("YES")
-        light_on()
-        time.sleep(3)
-        light_off()
-    else:
-        print("NO")
-        time.sleep(1)
-GPIO.cleanup()
+    def __init__(self):
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(26, GPIO.IN)
+    def humanSensor:
+        
+        try:
+            while True:    
+                if GPIO.input(26) == 1:
+                    print("YES")
+                    time.sleep(1)
+                else:
+                    print("NO")
+                    time.sleep(1)
+        except(KeyboardInterrupt):
+            print("interrupt")
+        GPIO.cleanup()
 
