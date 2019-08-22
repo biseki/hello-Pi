@@ -2,18 +2,18 @@ import RPi.GPIO as GPIO
 import time
 import subprocess
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(14, GPIO.IN)
+def sound():
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(14, GPIO.IN)
 
-CMD = "aplay /home/pi/hello-Pi/トーマス.wav"
+    CMD = "aplay /home/pi/hello-Pi/トーマス.wav"
+    try:
+        while True:
+            if GPIO.input(14):
+                subprocess.call(CMD, shell=True)
+            time.sleep(0.01)
 
-try:
-    while True:
-        if GPIO.input(14) == GPIO.HIGH:
-            subprocess.call(CMD, shell=True)
-        time.sleep(0.01)
-
-except KeyboardInterrupt:
-    pass
+    except KeyboardInterrupt:
+        pass
 
 GPIO.cleanup()
