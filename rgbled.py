@@ -2,14 +2,14 @@ import RPi.GPIO as GPIO
 import time
 import sys
 
-RED = 17
-GREEN = 27
-BLUE = 22
+RED = 21
+GREEN = 20
+BLUE = 15
 
 GPIO.setmode(GPIO.BCM)
-prots = [RED, GREEN, BLUE]
-for port in ports:
-    GPIO.setup(port, GPIO.OUT)
+GPIO.setup(21, GPIO.OUT)
+GPIO.setup(20, GPIO.OUT)
+GPIO.setup(15, GPIO.OUT)
 
 
 def set_rgb(r, g, b):
